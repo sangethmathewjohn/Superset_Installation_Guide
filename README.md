@@ -30,4 +30,47 @@ This will bring you back to the postgres Linux command prompt. To return to your
 
      exit
   
+## Install Dokcer
+ 
+Update the apt package index and install packages to allow apt to use a repository over HTTPS:
+
+     sudo apt-get update
+     sudo apt-get install \
+        ca-certificates \
+        curl \
+        gnupg \
+        lsb-release
+
+Add Docker’s official GPG key:
+
+
+     sudo mkdir -p /etc/apt/keyrings
+     curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+
+Use the following command to set up the repository:
+
+     echo \
+      "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian \
+      $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+Install Docker Engine
+
+This procedure works for Debian on x86_64 / amd64, armhf, arm64, and Raspbian.
+
+Update the apt package index:
+
+    sudo apt-get update
   
+To install the latest version, run:
+
+    sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+    
+if it gives an error:
+
+    sudo apt install docker
+    sudo apt install docker-compose
+
+Verify that the Docker Engine installation is successful by running the hello-world image:
+
+    sudo docker run hello-world
+    
