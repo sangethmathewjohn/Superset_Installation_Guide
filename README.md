@@ -74,4 +74,43 @@ Verify that the Docker Engine installation is successful by running the hello-wo
 
     sudo docker run hello-world
    
+## Installing Superset
+
+Recommended to run in a virtual environment
+
+Clone Superset's repo in your terminal with the following command:
+
+    git clone https://github.com/apache/superset.git
+
+Install stable version for email alert and reports:
+    
+    git clone https://github.com/sangethmathewjohn/superset.git
+
+Navigate to the folder you created in step 1:
+    
+    cd superset
+
+When working on master branch, run the following commands:
+
+    docker-compose -f docker-compose-non-dev.yml pull
+    docker-compose -f docker-compose-non-dev.yml up
+
+
+## To upload csv and other Files
+
+    Click the + sign on right top side
+    Click on connect database
+    Put the ip addres of docker (try : - ifconfig    or ip -a)
+    Set Port number 5432
+    Give Database name username and adress
+    
+    Next give the required persmission to the database.
+    
+## To set Email alert:
+
+    Clone via the second link
+    Change the smtp setting in the path docker/pythonpath_dev/superset_config.py
+    
   
+
+    
